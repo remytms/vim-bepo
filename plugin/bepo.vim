@@ -28,15 +28,20 @@ function! s:amap(key, target) abort
   call s:tomap(a:key, a:target)
 endfunction
 
-call s:amap(   'c',  'h'     )    "on préserve {hjkl} pour les directions
-call s:amap(   't',  'j'     )    "on préserve {hjkl} pour les directions
-call s:amap(   's',  'k'     )    "on préserve {hjkl} pour les directions
-call s:amap(   'r',  'l'     )    "on préserve {hjkl} pour les directions
-call s:amap(   'C',  'H'     )    "{CTSR} devient [HJKL]
-call s:amap(   'T',  'J'     )    "{CTSR} devient [HJKL]
-call s:amap(   'S',  'K'     )    "{CTSR} devient [HJKL]
-"call s:amap(   'R',  'L'     )    "{CTSR} devient [HJKL]
-nnoremap R L
+" Navigation keys {hjkl} -> [tsdr]
+noremap t h
+noremap s j
+noremap d k
+noremap r l
+noremap T H
+noremap S J
+noremap D K
+noremap R L
+" Delete : {d} -> [c]
+noremap c d
+noremap cc dd
+noremap C D
+noremap CC DD
 call s:amap(  'gt', 'gj'     )    "on préserve les variantes avec 'g'
 call s:amap(  'gs', 'gk'     )    "on préserve les variantes avec 'g'
 call s:amap(  'zt', 'zj'     )    "on préserve les variantes avec 'z'
@@ -68,13 +73,13 @@ call s:tomap( 'ié',  'iw'    )    "idem pour [iw] et [ié]
 call s:tomap( 'iÉ',  'iW'    )    "idem pour [iW] et [iÉ]
 call s:amap(   'w',  '<C-w>' )    "[w] est libre pour faire <C-w>
 call s:amap(   'W',  '<C-w><C-w>') "et [w] pour faire <C-w><C-w>
-call s:amap(  'wc', '<C-w>h' )    "on map [w]+direction
-call s:amap(  'wt', '<C-w>j' )    "on map [w]+direction
-call s:amap(  'ws', '<C-w>k' )    "on map [w]+direction
+call s:amap(  'wt', '<C-w>h' )    "on map [w]+direction
+call s:amap(  'ws', '<C-w>j' )    "on map [w]+direction
+call s:amap(  'wd', '<C-w>k' )    "on map [w]+direction
 call s:amap(  'wr', '<C-w>l' )    "on map [w]+direction
-call s:amap(  'wC', '<C-w>H' )    "idem pour les majuscules
-call s:amap(  'wT', '<C-w>J' )    "idem pour les majuscules
-call s:amap(  'wS', '<C-w>K' )    "idem pour les majuscules
+call s:amap(  'wT', '<C-w>H' )    "idem pour les majuscules
+call s:amap(  'wS', '<C-w>J' )    "idem pour les majuscules
+call s:amap(  'wD', '<C-w>K' )    "idem pour les majuscules
 call s:amap(  'wR', '<C-w>L' )    "idem pour les majuscules
 call s:amap(  'wh', '<C-w>s' )    "crée un split _h_orizontal
 call s:amap(  'wé', '<C-w>t' )    "va en haut à gauche
